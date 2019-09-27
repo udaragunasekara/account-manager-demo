@@ -1,1 +1,1 @@
-replace into user(id,userName, password) values (1,'admin','$2a$10$.EgYFpxYN5VccoBziEWkteiVywgPZAvLn78krsSlT.SSazMWikCpW');
+replace into user(id,userName, password, created_at, updated_at ) values (1,'admin','$2a$10$.EgYFpxYN5VccoBziEWkteiVywgPZAvLn78krsSlT.SSazMWikCpW', now(), now());

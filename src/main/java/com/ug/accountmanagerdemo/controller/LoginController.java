@@ -1,5 +1,7 @@
 package com.ug.accountmanagerdemo.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,7 +34,7 @@ public class LoginController {
 	private CustomUserDetailsService userDetailsService;
 
 	@PostMapping("/login")
-	public ResponseEntity<AuthResponse> createAuthenticationToken(@RequestBody AuthRequest authenticationRequest)
+	public ResponseEntity<AuthResponse> createAuthenticationToken(@Valid @RequestBody AuthRequest authenticationRequest)
 			throws Exception {
 
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());

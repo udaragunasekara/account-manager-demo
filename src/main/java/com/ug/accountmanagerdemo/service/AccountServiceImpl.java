@@ -36,4 +36,9 @@ public class AccountServiceImpl implements AccountService {
 		return (List<Account>) accountsRepo.findAll();
 	}
 
+	@Override
+	public Optional<Account> getAccount(Long id) {
+		return accountsRepo.findById(id);
+	}
+
 }

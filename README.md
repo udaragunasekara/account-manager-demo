@@ -41,3 +41,36 @@ Other Considerations
 - It is highly recommended to use https over http for any web application. This can be achieved by putting a ssl terminating proxy such as nginx. Not done in the scope of this exercise.
 - All passwords in the database will be encrypted.
 - Logback is used as the loggin provider. See the logback.xml file for changing defaults.
+
+Running the project
+-------------------
+
+- mvn spring-boot:run
+- Default user is created when starting up with the user name 'admin' and password 'adminPassword0987!'
+- To authenticate 
+
+
+curl -i -X POST \
+   -H "Content-Type:application/json" \
+   -d \
+'{
+  "username": "admin",
+  "password": "adminPassword0987!"
+}' \
+ 'http://localhost:8000/api/auth/login'
+ 
+ - To exercise an api with the token received in the login step do the following.
+ 
+ curl -i -X POST \
+   -H "Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2OTU2Mjc3MCwiaWF0IjoxNTY5NTYyMTcwfQ.Ez9yF460yRguvRxbq5XacxZaOcaLQf21DqYcuIjBDYtzYiFAlbBG1eplQeYLSa_2bgWCKKvCQy2aThbUATxgUw" \
+   -H "Content-Type:application/json" \
+   -d \
+'{
+  "name" : "my account5",
+  "description": "some desc"
+}' \
+ 'http://localhost:8000/api/accounts'
+ 
+ 
+ 
+ 

@@ -1,5 +1,6 @@
 package com.ug.accountmanagerdemo.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class AccountServiceImpl implements AccountService {
 		account.setOwnedBy(user);
 		
 		return accountsRepo.save(account);
+	}
+
+	@Override
+	public List<Account> getAllAcounts() {
+		return (List<Account>) accountsRepo.findAll();
 	}
 
 }
